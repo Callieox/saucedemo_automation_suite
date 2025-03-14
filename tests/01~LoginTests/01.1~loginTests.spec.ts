@@ -1,10 +1,13 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../pom/pages/loginPage';
 
-import userData from '../data/userData.json';
-import errorData from '../data/errorData.json';
+// Page Objects
+import { LoginPage } from '../../pom/pages/loginPage';
 
-test.describe('01 ~ Login Tests', () => {
+// Test Data
+import userData from '../../data/userData.json';
+import errorData from '../../data/errorData.json';
+
+test.describe('01.1 ~ Login Tests', () => {
 
     // ---------- BeforeEach ----------
 
@@ -15,7 +18,7 @@ test.describe('01 ~ Login Tests', () => {
 
     // ---------- Test 1 ----------
 
-    test('01.1 ~ Login with valid credentials', async ({ page }) => {
+    test('01.1.1 ~ Login with valid credentials', async ({ page }) => {
         const loginPage = new LoginPage(page);
 
         test.step('Fill in login fields with valid data', async () => {
@@ -29,7 +32,7 @@ test.describe('01 ~ Login Tests', () => {
 
     // ---------- Test 2 ----------
 
-    test('01.2 ~ Login with invalid credentials', async ({ page }) => {
+    test('01.1.2 ~ Login with invalid credentials', async ({ page }) => {
         const loginPage = new LoginPage(page);
         
         test.step('Fill in login fields with invalid data', async () => {
@@ -44,7 +47,7 @@ test.describe('01 ~ Login Tests', () => {
 
     // ---------- Test 3 ----------
 
-    test('01.3 ~ Login with locked out credentials', async ({ page }) => {
+    test('01.1.3 ~ Login with locked out credentials', async ({ page }) => {
         const loginPage = new LoginPage(page);
         
         test.step('Fill in login fields with locked out data', async () => {

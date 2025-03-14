@@ -5,13 +5,13 @@ import { InventoryPage } from '../../pom/pages/inventoryPage';
 import userData from '../../data/userData.json';
 
 type LoginFixtures = {
-    loggedInPage: LoginPage;
+    login: LoginPage;
     inventoryPage: InventoryPage;
 };
 
 export const test = baseTest.extend<LoginFixtures>({
     // User login
-    loggedInPage: async ({ page }, use) => {
+    login: async ({ page }, use) => {
         const loginPage = new LoginPage(page);
 
         // Navigate to url
@@ -28,6 +28,12 @@ export const test = baseTest.extend<LoginFixtures>({
 
     inventoryPage: async ({ page }, use) => {
         const inventoryPage = new InventoryPage(page);
+
+        // Expect the page title to be visible upon login
+        await expect(inventoryPage.pageTitle).toBeVisible();
+
+        // Assert title shown is for the inventory page
+        await expect(inventoryPage.pageTitle).toContainText('Products');
 
         await use(inventoryPage);
     },
