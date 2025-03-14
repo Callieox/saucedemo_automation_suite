@@ -9,7 +9,7 @@ test.describe('01 ~ Login Tests', () => {
     // ---------- BeforeEach ----------
 
     test.beforeEach(async ({ page }) => {
-        await page.goto('https://www.saucedemo.com');
+        await page.goto('/');
         await expect(page.locator('#login-button')).toBeVisible();
     });
 
