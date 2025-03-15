@@ -28,6 +28,9 @@ export class InventoryPage {
         // Expect the page title to be visible upon login
         await expect(this.pageTitle).toBeVisible();
 
+        // Assert URL is for the inventory page
+        await expect(this.page).toHaveURL(/inventory.html/);
+
         // Assert title shown is for the inventory page
         await expect(this.pageTitle).toContainText('Products');
     }

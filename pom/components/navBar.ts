@@ -8,9 +8,15 @@ export class NavBar {
 
     constructor(page:Page) {
         this.page = page;
-        this.burgerMenu = page.locator('#react-burger-menu-btn');
+        this.burgerMenu = page.locator('.bm-burger-button');
         this.headerTitle = page.locator('.app_logo');
-        this.basketIcon = page.getByTestId('shopping-cart-link');
+        this.basketIcon = page.locator('.shopping_cart_link');
+    }
+
+    async validateNavBarUI() {
+        await expect(this.burgerMenu).toBeVisible();
+        await expect(this.headerTitle).toBeVisible();
+        await expect(this.basketIcon).toBeVisible();
     }
 
     async navigateToBurgerMenu(){
@@ -19,7 +25,7 @@ export class NavBar {
     }
 
     async getHeaderTitle() {
-        return this.headerTitle;
+        return await this.headerTitle.textContent();
     }
 
     async viewBasket() {
