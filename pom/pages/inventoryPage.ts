@@ -1,5 +1,9 @@
+// Inventory Page POM
+
+// Importing necessary modules
 import { Page, Locator, expect } from '@playwright/test';
 
+// Inventory Page Class
 export class InventoryPage {
     readonly page: Page;
     readonly pageTitle: Locator;
@@ -12,6 +16,7 @@ export class InventoryPage {
     readonly productPrice: Locator;
     readonly addToCartButton: Locator;
 
+    // Constructor
     constructor(page: Page) {
         this.page = page;
         this.pageTitle = page.locator('[data-test="title"]');
@@ -24,6 +29,7 @@ export class InventoryPage {
         this.addToCartButton = page.locator('.btn_inventory');
     }
 
+    // Method to verify inventory page
     async verifyInventoryPageLoaded() {
         // Expect the page title to be visible upon login
         await expect(this.pageTitle).toBeVisible();

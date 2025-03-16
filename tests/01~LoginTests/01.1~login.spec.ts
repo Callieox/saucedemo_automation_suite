@@ -1,3 +1,6 @@
+// Test for Login
+
+// Playwright imports
 import { test, expect } from '@playwright/test';
 
 // Page Objects
@@ -7,6 +10,7 @@ import { LoginPage } from '../../pom/pages/loginPage';
 import userData from '../../data/userData.json';
 import errorData from '../../data/errorData.json';
 
+// Test Suite
 test.describe('01.1 ~ Login Tests', () => {
 
     // ---------- BeforeEach ----------

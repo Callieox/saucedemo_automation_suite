@@ -1,5 +1,9 @@
+// Test for Inventory UI
+
+// Fixture imports
 import { test, expect } from '../fixtures/fixture';
 
+// Test Suite
 test.describe('02.1 ~ Inventory UI Tests', () => {
 
     // ---------- Test 1 ----------
